@@ -53,10 +53,10 @@ public abstract class Environment {
     /**
      * This method is called by the simulator to know if the agent has failed.
      * If so, the simulation will finish. Users can override it.
-     * @param actionReturned
+     * @param agState
      * @return
      */
-    public boolean agentFailed(Action actionReturned) {
+    public boolean agentFailed(AgentState agState) {
         return false;
     }
 

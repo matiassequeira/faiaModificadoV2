@@ -23,6 +23,7 @@ import java.util.Vector;
 import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Agent;
 import frsf.cidisi.faia.environment.Environment;
+import frsf.cidisi.faia.state.AgentState;
 import frsf.cidisi.faia.agent.NoAction;
 
 public class PlanningBasedAgentSimulator extends GoalBasedAgentSimulator {
@@ -50,8 +51,8 @@ public class PlanningBasedAgentSimulator extends GoalBasedAgentSimulator {
     }
 
     @Override
-    public boolean agentFailed(Action actionReturned) {
-        return this.environment.agentFailed(actionReturned);
+    public boolean agentFailed(AgentState agState) {
+        return this.environment.agentFailed(agState);
     }
 
     @Override

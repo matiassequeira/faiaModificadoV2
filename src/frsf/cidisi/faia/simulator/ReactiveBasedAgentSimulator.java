@@ -24,6 +24,7 @@ import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Agent;
 import frsf.cidisi.faia.agent.NoAction;
 import frsf.cidisi.faia.environment.Environment;
+import frsf.cidisi.faia.state.AgentState;
 
 public class ReactiveBasedAgentSimulator extends GoalBasedAgentSimulator {
 
@@ -51,8 +52,8 @@ public class ReactiveBasedAgentSimulator extends GoalBasedAgentSimulator {
     }
 
     @Override
-    public boolean agentFailed(Action actionReturned) {
-        return this.environment.agentFailed(actionReturned);
+    public boolean agentFailed(AgentState agState) {
+        return this.environment.agentFailed(agState);
     }
 
     @Override

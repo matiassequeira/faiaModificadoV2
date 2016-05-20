@@ -27,6 +27,7 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgent;
 import frsf.cidisi.faia.environment.Environment;
 import frsf.cidisi.faia.simulator.events.EventType;
 import frsf.cidisi.faia.simulator.events.SimulatorEventNotifier;
+import frsf.cidisi.faia.state.AgentState;
 
 public abstract class GoalBasedAgentSimulator extends Simulator {
 
@@ -96,7 +97,7 @@ public abstract class GoalBasedAgentSimulator extends Simulator {
 
             this.actionReturned(agent, action);
 
-        } while (!this.agentSucceeded(action) && !this.agentFailed(action));
+        } while (!this.agentSucceeded(action) && !this.agentFailed(agent.getAgentState()));
 
         // Check what happened, if agent has reached the goal or not.
         if (this.agentSucceeded(action)) {
@@ -126,7 +127,7 @@ public abstract class GoalBasedAgentSimulator extends Simulator {
 
     public abstract boolean agentSucceeded(Action action);
 
-    public abstract boolean agentFailed(Action action);
+    public abstract boolean agentFailed(AgentState agState);
 
     /**
      * This method is executed in the mail loop of the simulation when the
